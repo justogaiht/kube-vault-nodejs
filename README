@@ -1,0 +1,2 @@
+# kube-vault-nodejs
+Add Vault secrets to your nodejs app using kuberntes seviceaccounts to authenticate. 
