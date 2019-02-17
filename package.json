@@ -1,4 +1,33 @@
 {
-    "name" : "@ummagumma/kube-vault",
-    "version" : "0.0.1"
+    "name": "@ummagumma/kube-vault",
+    "version": "0.0.1",
+    "description": "Add Vault secrets to your nodejs app using kuberntes authentication.",
+    "scripts": {
+        "build": "tsc",
+        "watch": "tsc --watch",
+        "lint": "tslint --project \"./tsconfig.json\"",
+        "test": "jest --config jestconfig.json"
+    },
+    "license": "MIT",
+    "repository": "justogaiht/kube-vault-nodejs",
+    "main": "dist/index.js",
+    "keywords": [
+        "kubernetes",
+        "vault",
+        "npm",
+        "package",
+        "ummagumma"
+    ],
+    "devDependencies": {
+        "@types/jest": "^24.0.5",
+        "@types/node": "^11.9.4",
+        "jest": "^24.1.0",
+        "ts-jest": "^23.10.5",
+        "tslint": "^5.12.1",
+        "typescript": "^3.3.3"
+    },
+    "dependencies": {
+        "@types/request-promise": "^4.1.42",
+        "request-promise": "^4.2.4"
+    }
 }
