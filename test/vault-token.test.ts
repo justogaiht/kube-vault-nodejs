@@ -9,7 +9,12 @@ const tokenConfigInvalid: VaultConfig = {
 const tokenConfigValid: VaultConfig = {
   auth:'TOKEN',
   url: 'https://192.168.0.23:8200',
-  token:'HMcBB7KqGY7PQRKQWVQnQw5E'
+  token:'HMcBB7KqGY7PQRKQWVQnQw5E',
+  secrets: [
+    'myplainsecret.token',
+    'mySecretFolder/app.pass',
+    'mySecretFolder/app.token'
+  ]
 } as VaultConfig;
 
 test('Default Token AUTH: Invalid Token', () => {
@@ -29,6 +34,6 @@ it('Default Token AUTH: Read a secret', () => {
   expect.assertions(1);
 
   return expect(  
-    vault.getSecret('foo')
-  ).resolves.toEqual('bar');
+    vault.readSecrets()
+  ).resolves.toBeDefined();
 });

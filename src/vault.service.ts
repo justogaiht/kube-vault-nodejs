@@ -7,7 +7,7 @@ export class VaultService {
     private vaultConfig: VaultConfig;
     private vaultToken: string = '';
 
-    private readonly secretApi: string = '/v1/secret/data/';
+    private readonly secretApi: string = '/v1/secret/';
     private readonly kubernetesApi: string = '/auth/kubernetes/login';
 
     constructor( vaultConfig: VaultConfig){
@@ -43,7 +43,7 @@ export class VaultService {
                     let json = JSON.parse(result);
                     console.log(result);
                     console.log(json.data);
-                    resolve('bar');
+                    resolve(json.data);
                 }
             ).catch(
                 (err)=>{
