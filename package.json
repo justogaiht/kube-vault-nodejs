@@ -1,6 +1,6 @@
 {
     "name": "@ummagumma/kube-vault",
-    "version": "0.0.1",
+    "version": "0.0.6",
     "description": "Add Vault secrets to your nodejs app using kuberntes authentication.",
     "scripts": {
         "build": "tsc",
@@ -10,7 +10,8 @@
     },
     "license": "MIT",
     "repository": "justogaiht/kube-vault-nodejs",
-    "main": "dist/index.js",
+    "main": "dist/index.ts",
+    "typings": "dist/index.d.ts",
     "keywords": [
         "kubernetes",
         "vault",

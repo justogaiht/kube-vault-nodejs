@@ -1,4 +1,4 @@
-import { Vault } from '../src';
+import { Vault } from '../src/vault';
 import { VaultConfig } from '../src/vault.config';
 
 const tokenConfigInvalid: VaultConfig = {

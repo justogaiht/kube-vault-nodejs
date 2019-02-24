@@ -34,7 +34,6 @@ export class VaultService {
         case 'KUBERNETES':
           // Read Token
           const content = fs.readFileSync(this.saTokenPath, 'utf8');
-          console.log(content);
 
           // Login with role and token
           const options: OptionsWithUrl = {} as OptionsWithUrl;
@@ -46,15 +45,12 @@ export class VaultService {
 
           request(options).then(
             (result) => {
-              console.log(result);
               // Get ClientId as Token
               this.vaultToken = result.auth.client_token;
               resolve(true);
             }
           ).catch(
             (err) => {
-              console.log(err);
-              // throw 'Unable to login using KUBERNETES AUTH'
               reject(err);
             }
           );
@@ -72,13 +68,10 @@ export class VaultService {
       request(this.getRequest(secretPath)).then(
         (result) => {
           const json = JSON.parse(result);
-          console.log(result);
-          console.log(json.data);
           resolve(json.data);
         }
       ).catch(
         (err) => {
-          console.log(err);
           reject(err);
         }
       );
