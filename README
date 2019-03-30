@@ -1,2 +1,23 @@
 # kube-vault-nodejs
-Add Vault secrets to your nodejs app using kuberntes seviceaccounts to authenticate. 
+> Integrate Vault secrets to your nodejs app authenticating with kuberntes seviceaccounts. 
+
+## Environment Setup
+
+Install Kubernetes:  
+- [with minikube](https://kubernetes.io/docs/tasks/tools/install-minikube) or
+- [with minishift](https://docs.okd.io/latest/minishift/getting-started/installing.html) or
+- [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
+
+Install Hashicorp Vault:
+- [on kubernetes](https://testdriven.io/blog/running-vault-and-consul-on-kubernetes/) or
+- [from vault](https://www.vaultproject.io/docs/install/) you need install [Hashicorp consul](https://www.consul.io/docs/install/index.html) as vault storage
+
+### Vault/K8s Integration
+Add Kubernetes as vault Auth Method. You will need kube certs and rsa key.
+> cat /root/.kube/config
+
+Decode tokens:
+> echo <CERT VALUE> | base64 -d
+
+## API USAGE
+
