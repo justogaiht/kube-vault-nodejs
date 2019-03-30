@@ -20,4 +20,34 @@ Decode tokens:
 > echo <CERT VALUE> | base64 -d
 
 ## API USAGE
+> npm i @ummagumma/kube-vault
+
+Setup VaultConfig:
+``` typescript
+const vaultConfig: VaultConfig = {
+  auth: 'KUBERNETES',
+  url: 'https://vault:8200',
+  kubernetes: {
+    service: 'kubernetes-api:6443',
+    serviceAccount: 'default'
+  },
+  secrets: [
+    'myplainsecret.token',
+    'mySecretFolder/app.pass',
+    'mySecretFolder/app.token'
+  ]
+} as VaultConfig;
+```
+
+Read claimed secrets:
+``` typescript
+const vaultValues  = async () => {
+  let vault = new Vault(vaultConfig);
+  const vaultAuth = await vault.init();
+  const secretsValues = await vault.readSecrets();
+  return secretsValues;
+};
+```
+
+
 
